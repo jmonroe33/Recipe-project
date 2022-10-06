@@ -19,6 +19,12 @@ function App() {
   const [recipes, setRecipes] = useState(RecipeData);
 // handles the change of state using the setRecipes funciton attached
 // descrutcture to the target property of the object event
+ const onChangeHandler = ({target})=>{
+   setFormData({
+    ...formData,
+    [target.name]: target.value,
+   })
+ } 
  const submitHandler = (event)=> {
   event.preventDefault()
    setRecipes([
@@ -27,12 +33,7 @@ function App() {
    ])
    setFormData({...initialState})
  }
- const onChangeHandler = ({target})=>{
-   setFormData({
-    ...formData,
-    [target.name]: target.value,
-   })
- } 
+
  const deleteRecipe =(indexToDelete)=>{
   setRecipes((currentRecipe)=> currentRecipe.filter((recipe,index)=> index !== indexToDelete)
  )}

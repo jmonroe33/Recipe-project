@@ -6,7 +6,7 @@ function RecipeCreate({ formData,submitHandler,onChangeHandler }) {
   // needs a change Handler
 
   return (
-    <form onSubmit={submitHandler}>
+    <form name="create"onSubmit={submitHandler}>
       <table>
         <tbody>
           <tr>
