@@ -24,8 +24,7 @@ function RecipeList({recipes,deleteRecipe}) {
         <tbody>
            {recipes.map((recipe,index)=>(
             <Recipe 
-              index = {index} 
-              key={index} 
+              index={index}  
               recipe={recipe} 
               deleteRecipe={()=> deleteRecipe(index)}/>
            ))}

@@ -1,47 +1,12 @@
 import React, { useState } from "react";
 
-function RecipeCreate({ createRecipe }) {
-  const [name, setName] = useState("");
-  const [cuisine, setCuisine] = useState("");
-  const [photo, setPhoto] = useState("");
-  const [ingredients, setIngredients] = useState("");
-  const [preparation, setPreparation] = useState("");
+function RecipeCreate({ formData,submitHandler,onChangeHandler }) {
+  // i need the form state 
+  // needs the submit handler 
+  // needs a change Handler
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-    setName("");
-    setCuisine("");
-    setIngredients("");
-    setPhoto("");
-    setPreparation("");
-    createRecipe({ name, cuisine, ingredients, photo, preparation });
-  };
-
-  const nameChangeHandler = ({ target }) => {
-    setName(target.value);
-  };
-  const cuisineChangeHandler = ({ target }) => {
-    setCuisine(target.value);
-  };
-  const ingredientsChangeHandler = ({ target }) => {
-    setIngredients(target.value);
-  };
-  const photoChangeHandler = ({ target }) => {
-    setPhoto(target.value);
-  };
-  const preparationChangeHandler = ({ target }) => {
-    setPreparation(target.value);
-  };
-  // TODO: When the form is submitted, a new recipe should be created, and the form contents cleared.
-  // TODO: Add the required input and textarea form elements.
-  // TODO: Add the required submit and change handlers
-  // needs two inputs and one img input and a two text area inputs
-  // need logic for delete button that checks to see if the button is
-  // i need the info for the name, i need info for all the properties that
-  // were created in the formData so formdata needs to get passed down
-  // remember you need the data for multiple
   return (
-    <form name="create" onSubmit={submitHandler}>
+    <form onSubmit={submitHandler}>
       <table>
         <tbody>
           <tr>
@@ -51,11 +16,11 @@ function RecipeCreate({ createRecipe }) {
                   id="name"
                   type="text"
                   name="name"
-                  onChange={nameChangeHandler}
-                  value={name}
-                  required
+                  onChange={onChangeHandler}
+                  value={formData.name}
                   placeholder="Name"
                   className="smInputs"
+                  required
                 />
               </label>
             </td>
@@ -65,11 +30,11 @@ function RecipeCreate({ createRecipe }) {
                   id="cuisine"
                   type="text"
                   name="cuisine"
-                  onChange={cuisineChangeHandler}
-                  value={cuisine}
-                  required
+                  onChange={onChangeHandler}
+                  value={formData.cuisine}
                   placeholder="Cuisine"
                   className="smInputs"
+                  required
                 />
               </label>
             </td>
@@ -79,11 +44,11 @@ function RecipeCreate({ createRecipe }) {
                   id="photo"
                   type="url"
                   name="photo"
-                  onChange={photoChangeHandler}
-                  value={photo}
-                  required
+                  onChange={onChangeHandler}
+                  value={formData.photo}
                   placeholder="Photo"
                   className="smInputs"
+                  required
                 />
               </label>
             </td>
@@ -93,8 +58,8 @@ function RecipeCreate({ createRecipe }) {
                   id="ingredients"
                   type="textarea"
                   name="ingredients"
-                  onChange={ingredientsChangeHandler}
-                  value={ingredients}
+                  onChange={onChangeHandler}
+                  value={formData.ingredients}
                   placeholder="Ingredients"
                   required
                 />
@@ -106,9 +71,10 @@ function RecipeCreate({ createRecipe }) {
                   id="preparation"
                   type="textarea"
                   name="preparation"
-                  onChange={preparationChangeHandler}
-                  value={preparation}
+                  onChange={onChangeHandler}
+                  value={formData.preparation}
                   placeholder="Preparation"
+                  required
                 />
               </label>
             </td>
