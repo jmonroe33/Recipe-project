@@ -2,7 +2,10 @@
 
 A simple react app that allows you to save your favorite recipe's !
 
-Styled with CSS, you are allowed to create recipe's, edit recipe's, and delete recipe's.
+Styled with CSS you are allowed to: 
+Create recipe's,
+Edit recipe's, 
+and Delete recipe's.
 
 ## To run project 
 
